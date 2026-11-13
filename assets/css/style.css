@@ -192,9 +192,7 @@ section.block .sub { color: var(--muted); margin: 0 0 28px; max-width: 46em; }
 footer { border-top: 1px solid var(--rule); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
 footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 
-.thumb-btn.plain { border: 0; background: transparent; }
+.thumb-btn.plain { border: 0; background: transparent; cursor: zoom-in; }
 .thumb-btn.plain img { aspect-ratio: auto; object-fit: contain; }
 .thumb-btn.plain:hover img { transform: none; }
 .hero h1 { margin-bottom: 32px; }
-.feature.stacked { grid-template-columns: 1fr; gap: 24px; }
-.feature.stacked > div { max-width: 46em; }
