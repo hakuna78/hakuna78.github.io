@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chaewoo Kim · Multi-modal Learning</title>
+  <meta name="description" content="Chaewoo Kim (김채우) — undergraduate researcher at Hankuk University of Foreign Studies working on multi-modal learning, audio-visual speech recognition, and video understanding.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">Chaewoo Kim</a>
+    <ul>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li class="hide-sm"><a href="#talks">Talks</a></li>
+      <li class="hide-sm"><a href="#news">News</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="assets/cv.pdf">CV</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <h1>Hello, I'm Chaewoo Kim.</h1>
+    <p class="tagline">Teaching models to listen and watch together.</p>
+    <div class="profile">
+      <img class="photo" src="assets/img/profile.jpg" alt="Portrait of Chaewoo Kim" width="240" height="300">
+      <dl class="info">
+        <div><dt>Name</dt><dd>Chaewoo Kim (김채우)</dd></div>
+        <div><dt>Affiliation</dt><dd>Undergraduate researcher, Division of Social Science &amp; AI<br>Hankuk University of Foreign Studies, Seoul</dd></div>
+        <div><dt>E-mail</dt><dd><a href="mailto:kcwkcm@hufs.ac.kr">kcwkcm@hufs.ac.kr</a></dd></div>
+        <div><dt>GitHub</dt><dd><a href="https://github.com/hakuna78">github.com/hakuna78</a></dd></div>
+        <div><dt>CV</dt><dd><a href="assets/cv.pdf">Download (PDF)</a></dd></div>
+      </dl>
+    </div>
+    <div class="edu">
+      <h2 class="edu-h">Education</h2>
+      <div class="edu-body">
+        <div class="edu-row">
+          <div><strong>Hankuk University of Foreign Studies</strong><br>Bachelor's degree, Division of Social Science &amp; AI</div>
+          <div class="when">Mar. 2024 – present<br>Expected Feb. 2028</div>
+        </div>
+        <h3 class="courses-h">Relevant coursework</h3>
+        <ul class="courses">
+          <li>Introduction to Artificial Intelligence</li>
+          <li>Mathematics for Artificial Intelligence</li>
+          <li>Machine Learning</li>
+          <li>Deep Learning and Applications</li>
+          <li>Probability and Statistics</li>
+          <li>Algorithms</li>
+          <li>Data Structures</li>
+          <li>Database Systems</li>
+          <li>Social Data Programming</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="block" id="interests" aria-labelledby="interests-h">
+  <div class="wrap">
+    <h2 id="interests-h">Research interests</h2>
+    <p class="sub">The problems I want to study in a lab.</p>
+    <div class="interests">
+      <div class="interest">
+        <div class="swatch" style="background:var(--audio)"></div>
+        <h3>Multi-modal learning</h3>
+        <p>Fusing audio, vision, and language so each modality covers the other's blind spots.</p>
+      </div>
+      <div class="interest">
+        <div class="swatch" style="background:var(--visual)"></div>
+        <h3>Video understanding</h3>
+        <p>Reading meaning from motion over time, from lip movement to whole scenes.</p>
+      </div>
+      <div class="interest">
+        <div class="swatch" style="background:var(--ink)"></div>
+        <h3>Vision-Language-Action</h3>
+        <p>Connecting what a model sees and reads to how it acts in the physical world.</p>
+      </div>
+      <div class="interest">
+        <div class="swatch" style="background:var(--muted)"></div>
+        <h3>Explainable AI</h3>
+        <p>Making it visible which inputs a model relied on, and when to trust it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="research" aria-labelledby="research-h">
+  <div class="wrap">
+    <h2 id="research-h">Research</h2>
+    <p class="sub">Two research projects, one on multi-modal speech and one on attention over neighboring signals.</p>
+
+    <article class="feature">
+      <div>
+        <span class="status live">Ongoing · since Oct. 2026</span>
+        <h3>Korean audio-visual speech recognition with a multi-modal LLM</h3>
+        <p class="meta">Team project · AiEYES, HUFS</p>
+        <p>Speech recognition breaks down in noisy places; lip movement does not. We adapt <a href="https://arxiv.org/abs/2511.07253">Omni-AVSR</a> (ICASSP 2026), a single LLM-based model that handles audio-only, visual-only, and audio-visual recognition, to Korean.</p>
+        <ul>
+          <li>Fine-tuning on the AI Hub Korean lip-reading dataset with LoRA.</li>
+          <li>Added an auxiliary phoneme-level CTC loss so audio-visual tokens align with Korean pronunciation.</li>
+          <li>Next: CTC on/off ablation, noise robustness across SNR levels, and jamo vs. syllable targets.</li>
+        </ul>
+        <div class="tags"><span class="tag">AVSR</span><span class="tag">Multi-modal LLM</span><span class="tag">LoRA</span><span class="tag">CTC</span><span class="tag">PyTorch</span></div>
+      </div>
+      <div class="figs">
+        <figure class="streams-fig">
+      <svg class="streams" viewBox="0 0 540 280" role="img" aria-labelledby="streams-title">
+        <title id="streams-title">An audio waveform and a strip of lip frames, both aligned to the Korean phonemes of 안녕</title>
+        <text class="lbl" x="0" y="74">audio</text>
+        <rect class="bar" x="70.0" y="64.6" width="5" height="10.9" rx="2.5" style="animation-delay:0ms"/>
+        <rect class="bar" x="79.8" y="64.9" width="5" height="10.2" rx="2.5" style="animation-delay:14ms"/>
+        <rect class="bar" x="89.6" y="63.0" width="5" height="14.0" rx="2.5" style="animation-delay:28ms"/>
+        <rect class="bar" x="99.4" y="64.4" width="5" height="11.1" rx="2.5" style="animation-delay:42ms"/>
+        <rect class="bar" x="109.2" y="61.9" width="5" height="16.3" rx="2.5" style="animation-delay:56ms"/>
+        <rect class="bar" x="119.0" y="61.3" width="5" height="17.5" rx="2.5" style="animation-delay:70ms"/>
+        <rect class="bar" x="128.8" y="61.3" width="5" height="17.5" rx="2.5" style="animation-delay:84ms"/>
+        <rect class="bar" x="138.6" y="56.4" width="5" height="27.1" rx="2.5" style="animation-delay:98ms"/>
+        <rect class="bar" x="148.4" y="57.6" width="5" height="24.8" rx="2.5" style="animation-delay:112ms"/>
+        <rect class="bar" x="158.2" y="51.9" width="5" height="36.2" rx="2.5" style="animation-delay:126ms"/>
+        <rect class="bar" x="168.0" y="53.5" width="5" height="33.0" rx="2.5" style="animation-delay:140ms"/>
+        <rect class="bar" x="177.8" y="52.0" width="5" height="36.0" rx="2.5" style="animation-delay:154ms"/>
+        <rect class="bar" x="187.6" y="47.7" width="5" height="44.6" rx="2.5" style="animation-delay:168ms"/>
+        <rect class="bar" x="197.4" y="43.6" width="5" height="52.8" rx="2.5" style="animation-delay:182ms"/>
+        <rect class="bar" x="207.2" y="52.8" width="5" height="34.4" rx="2.5" style="animation-delay:196ms"/>
+        <rect class="bar" x="217.0" y="53.7" width="5" height="32.6" rx="2.5" style="animation-delay:210ms"/>
+        <rect class="bar" x="226.8" y="52.6" width="5" height="34.7" rx="2.5" style="animation-delay:224ms"/>
+        <rect class="bar" x="236.6" y="53.2" width="5" height="33.6" rx="2.5" style="animation-delay:238ms"/>
+        <rect class="bar" x="246.4" y="58.2" width="5" height="23.6" rx="2.5" style="animation-delay:252ms"/>
+        <rect class="bar" x="256.2" y="61.0" width="5" height="18.0" rx="2.5" style="animation-delay:266ms"/>
+        <rect class="bar" x="266.0" y="60.0" width="5" height="20.0" rx="2.5" style="animation-delay:280ms"/>
+        <rect class="bar" x="275.8" y="64.5" width="5" height="11.0" rx="2.5" style="animation-delay:294ms"/>
+        <rect class="bar" x="285.6" y="60.9" width="5" height="18.2" rx="2.5" style="animation-delay:308ms"/>
+        <rect class="bar" x="295.4" y="62.1" width="5" height="15.8" rx="2.5" style="animation-delay:322ms"/>
+        <rect class="bar" x="305.2" y="61.5" width="5" height="17.1" rx="2.5" style="animation-delay:336ms"/>
+        <rect class="bar" x="315.0" y="60.0" width="5" height="19.9" rx="2.5" style="animation-delay:350ms"/>
+        <rect class="bar" x="324.8" y="56.8" width="5" height="26.4" rx="2.5" style="animation-delay:364ms"/>
+        <rect class="bar" x="334.6" y="50.2" width="5" height="39.6" rx="2.5" style="animation-delay:378ms"/>
+        <rect class="bar" x="344.4" y="53.6" width="5" height="32.7" rx="2.5" style="animation-delay:392ms"/>
+        <rect class="bar" x="354.2" y="47.7" width="5" height="44.7" rx="2.5" style="animation-delay:406ms"/>
+        <rect class="bar" x="364.0" y="45.7" width="5" height="48.7" rx="2.5" style="animation-delay:420ms"/>
+        <rect class="bar" x="373.8" y="48.3" width="5" height="43.4" rx="2.5" style="animation-delay:434ms"/>
+        <rect class="bar" x="383.6" y="46.8" width="5" height="46.5" rx="2.5" style="animation-delay:448ms"/>
+        <rect class="bar" x="393.4" y="53.3" width="5" height="33.3" rx="2.5" style="animation-delay:462ms"/>
+        <rect class="bar" x="403.2" y="55.0" width="5" height="30.1" rx="2.5" style="animation-delay:476ms"/>
+        <rect class="bar" x="413.0" y="55.6" width="5" height="28.8" rx="2.5" style="animation-delay:490ms"/>
+        <rect class="bar" x="422.8" y="54.3" width="5" height="31.5" rx="2.5" style="animation-delay:504ms"/>
+        <rect class="bar" x="432.6" y="58.3" width="5" height="23.4" rx="2.5" style="animation-delay:518ms"/>
+        <rect class="bar" x="442.4" y="60.7" width="5" height="18.6" rx="2.5" style="animation-delay:532ms"/>
+        <rect class="bar" x="452.2" y="60.9" width="5" height="18.2" rx="2.5" style="animation-delay:546ms"/>
+        <rect class="bar" x="462.0" y="62.6" width="5" height="14.9" rx="2.5" style="animation-delay:560ms"/>
+        <rect class="bar" x="471.8" y="63.8" width="5" height="12.4" rx="2.5" style="animation-delay:574ms"/>
+        <rect class="bar" x="481.6" y="62.7" width="5" height="14.7" rx="2.5" style="animation-delay:588ms"/>
+        <rect class="bar" x="491.4" y="63.3" width="5" height="13.5" rx="2.5" style="animation-delay:602ms"/>
+        <text class="lbl" x="0" y="158">video</text>
+        <g>
+          <line class="link" x1="100" y1="102" x2="100" y2="128"/><line class="link" x1="176" y1="102" x2="176" y2="128"/><line class="link" x1="252" y1="102" x2="252" y2="128"/><line class="link" x1="328" y1="102" x2="328" y2="128"/><line class="link" x1="404" y1="102" x2="404" y2="128"/><line class="link" x1="480" y1="102" x2="480" y2="128"/>
+          <rect class="frame" x="72" y="130" width="56" height="48" rx="8"/><ellipse class="lip" cx="100" cy="154" rx="14" ry="2.5"/>
+          <rect class="frame" x="148" y="130" width="56" height="48" rx="8"/><ellipse class="lip" cx="176" cy="154" rx="13" ry="10"/>
+          <rect class="frame" x="224" y="130" width="56" height="48" rx="8"/><ellipse class="lip" cx="252" cy="154" rx="14" ry="4"/>
+          <rect class="frame" x="300" y="130" width="56" height="48" rx="8"/><ellipse class="lip" cx="328" cy="154" rx="14" ry="4"/>
+          <rect class="frame" x="376" y="130" width="56" height="48" rx="8"/><ellipse class="lip" cx="404" cy="154" rx="16" ry="7"/>
+          <rect class="frame" x="452" y="130" width="56" height="48" rx="8"/><ellipse class="lip" cx="480" cy="154" rx="14" ry="2.5"/>
+          <line class="link" x1="100" y1="180" x2="100" y2="219"/><line class="link" x1="176" y1="180" x2="176" y2="219"/><line class="link" x1="252" y1="180" x2="252" y2="219"/><line class="link" x1="328" y1="180" x2="328" y2="219"/><line class="link" x1="404" y1="180" x2="404" y2="219"/><line class="link" x1="480" y1="180" x2="480" y2="219"/>
+        </g>
+        <text class="lbl" x="0" y="242">phonemes</text>
+        <g>
+          <circle class="tok" cx="100" cy="238" r="18"/><text class="jamo" x="100" y="245" text-anchor="middle">ㅇ</text>
+          <circle class="tok" cx="176" cy="238" r="18"/><text class="jamo" x="176" y="245" text-anchor="middle">ㅏ</text>
+          <circle class="tok" cx="252" cy="238" r="18"/><text class="jamo" x="252" y="245" text-anchor="middle">ㄴ</text>
+          <circle class="tok" cx="328" cy="238" r="18"/><text class="jamo" x="328" y="245" text-anchor="middle">ㄴ</text>
+          <circle class="tok" cx="404" cy="238" r="18"/><text class="jamo" x="404" y="245" text-anchor="middle">ㅕ</text>
+          <circle class="tok" cx="480" cy="238" r="18"/><text class="jamo" x="480" y="245" text-anchor="middle">ㅇ</text>
+        </g>
+      </svg>
+      <figcaption class="streams-cap">“안녕” as a model sees it: sound and lip shape, aligned to phonemes.</figcaption>
+    </figure>
+        <figure class="diagram" style="margin:0">
+        <svg viewBox="0 0 560 300" role="img" aria-label="Pipeline: audio and lip video go through encoders and projectors into an LLM with LoRA that outputs Korean text; a phoneme CTC head on the projected tokens adds an auxiliary loss.">
+          <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5a6273"/></marker></defs>
+          <g font-size="13" fill="#1b2130">
+            <rect x="8" y="30" width="104" height="46" rx="8" fill="#eef0fb" stroke="#3a4fc4"/><text x="60" y="58" text-anchor="middle">Audio</text>
+            <rect x="8" y="140" width="104" height="46" rx="8" fill="#fbf3e2" stroke="#c98a12"/><text x="60" y="168" text-anchor="middle">Lip video</text>
+            <rect x="146" y="30" width="118" height="46" rx="8" fill="#fff" stroke="#c7ccd6"/><text x="205" y="58" text-anchor="middle">Audio encoder</text>
+            <rect x="146" y="140" width="118" height="46" rx="8" fill="#fff" stroke="#c7ccd6"/><text x="205" y="168" text-anchor="middle">Video encoder</text>
+            <rect x="296" y="85" width="92" height="46" rx="8" fill="#fff" stroke="#c7ccd6"/><text x="342" y="106" text-anchor="middle">Projectors</text><text x="342" y="122" text-anchor="middle" font-size="11" fill="#5a6273">AV tokens</text>
+            <rect x="420" y="70" width="132" height="76" rx="10" fill="#1b2130"/><text x="486" y="102" text-anchor="middle" fill="#fff" font-weight="600">LLM</text><text x="486" y="122" text-anchor="middle" fill="#c9cff0" font-size="12">+ LoRA</text>
+            <rect x="420" y="190" width="132" height="44" rx="8" fill="#fff" stroke="#1b2130"/><text x="486" y="217" text-anchor="middle">Korean transcript</text>
+            <rect x="270" y="222" width="136" height="54" rx="8" fill="#fff" stroke="#c98a12" stroke-dasharray="4 3"/><text x="338" y="245" text-anchor="middle" font-weight="600">Phoneme CTC head</text><text x="338" y="263" text-anchor="middle" font-size="11" fill="#5a6273">auxiliary loss (added)</text>
+          </g>
+          <g stroke="#5a6273" stroke-width="1.4" fill="none" marker-end="url(#arr)">
+            <path d="M112,53 H144"/><path d="M112,163 H144"/>
+            <path d="M264,53 H280 V100 H294"/><path d="M264,163 H280 V116 H294"/>
+            <path d="M388,108 H418"/>
+            <path d="M486,146 V188"/>
+            <path d="M342,131 V220"/>
+          </g>
+        </svg>
+        <figcaption>Training setup, simplified from Omni-AVSR. The dashed box is our addition.</figcaption>
+      </figure>
+      </div>
+    </article>
+
+    <article class="feature">
+      <div>
+        <span class="status live">Ongoing · since Dec. 2025</span>
+        <h3>Attention-based spatial estimation of hourly PM10/PM2.5 at unmonitored stations</h3>
+        <p class="meta">Undergraduate researcher, <a href="https://donghyunlee-lab.github.io/">Donghyun Lee AI Group</a> · Prof. Donghyun Lee</p>
+        <p>Estimating fine-dust levels where no sensor exists, using the stations around it. Stations are held out by fold, so the model never sees the place it has to predict.</p>
+        <ul>
+          <li>Residual correction on top of an IDW + ordinary kriging baseline.</li>
+          <li>LightGBM on 45 features from ten interpolators (wind-aware IDW, CAMS-based regression kriging) and lagged estimates.</li>
+          <li>A neighbor-attention network: the 24 nearest stations become tokens, self-attention relates them, and a query built from the target station's features picks which neighbors to trust.</li>
+          <li>Averaging both corrections beat either model alone on PM10 and PM2.5.</li>
+        </ul>
+        <div class="tags"><span class="tag">Attention</span><span class="tag">Spatial CV</span><span class="tag">LightGBM</span><span class="tag">Kriging</span></div>
+      </div>
+      <figure class="diagram" style="margin:0">
+        <svg viewBox="0 0 560 290" role="img" aria-label="Two branches: interpolators produce 45 features for LightGBM; 24 neighbor tokens go through self-attention and cross-attention with a query from the 45 features. Both corrections are averaged and added to the IDW plus kriging baseline.">
+          <defs><marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5a6273"/></marker></defs>
+          <g font-size="13" fill="#1b2130">
+            <rect x="8" y="20" width="136" height="50" rx="8" fill="#fff" stroke="#c7ccd6"/><text x="76" y="41" text-anchor="middle">10 interpolators</text><text x="76" y="58" text-anchor="middle" font-size="11" fill="#5a6273">IDW ×5, kriging ×5</text>
+            <rect x="176" y="20" width="112" height="50" rx="8" fill="#fff" stroke="#c7ccd6"/><text x="232" y="41" text-anchor="middle">45 features</text><text x="232" y="58" text-anchor="middle" font-size="11" fill="#5a6273">target station</text>
+            <rect x="316" y="20" width="116" height="50" rx="8" fill="#eef0fb" stroke="#3a4fc4"/><text x="374" y="50" text-anchor="middle">LightGBM</text>
+            <rect x="8" y="138" width="136" height="54" rx="8" fill="#fff" stroke="#c7ccd6"/><text x="76" y="158" text-anchor="middle">24 neighbor tokens</text>
+            <g fill="#fbf3e2" stroke="#c98a12"><rect x="26" y="168" width="14" height="14" rx="3"/><rect x="46" y="168" width="14" height="14" rx="3"/><rect x="66" y="168" width="14" height="14" rx="3"/><rect x="86" y="168" width="14" height="14" rx="3"/><rect x="106" y="168" width="14" height="14" rx="3"/></g>
+            <rect x="176" y="140" width="112" height="50" rx="8" fill="#fff" stroke="#c7ccd6"/><text x="232" y="161" text-anchor="middle">Self-attention</text><text x="232" y="178" text-anchor="middle" font-size="11" fill="#5a6273">among neighbors</text>
+            <rect x="316" y="140" width="116" height="50" rx="8" fill="#fbf3e2" stroke="#c98a12"/><text x="374" y="170" text-anchor="middle">Cross-attention</text>
+            <text x="300" y="110" font-size="11" fill="#5a6273">query</text>
+            <rect x="452" y="82" width="100" height="70" rx="10" fill="#1b2130"/><text x="502" y="110" text-anchor="middle" fill="#fff" font-weight="600">Estimate</text><text x="502" y="130" text-anchor="middle" fill="#c9cff0" font-size="11">b + mean(r)</text>
+            <rect x="8" y="230" width="200" height="40" rx="8" fill="#fff" stroke="#c7ccd6"/><text x="108" y="255" text-anchor="middle">Baseline b = ½ (IDW + kriging)</text>
+          </g>
+          <g stroke="#5a6273" stroke-width="1.4" fill="none" marker-end="url(#arr2)">
+            <path d="M144,45 H174"/><path d="M288,45 H314"/>
+            <path d="M144,165 H174"/><path d="M288,165 H314"/>
+            <path d="M232,70 V100 H374 V138"/>
+            <path d="M432,45 H441 V100 H450"/>
+            <path d="M432,165 H441 V134 H450"/>
+            <path d="M208,250 H502 V154"/>
+          </g>
+        </svg>
+        <figcaption>The two branches learn residual corrections r; the final estimate averages them.</figcaption>
+      </figure>
+    </article>
+  </div>
+</section>
+
+<section class="block" id="projects" aria-labelledby="projects-h">
+  <div class="wrap">
+    <h2 id="projects-h">Projects</h2>
+    <p class="sub">Click a thumbnail to see the architecture.</p>
+    <div class="pubs">
+      <article class="pub">
+        <button class="thumb-btn" type="button" data-full="assets/img/arch/museum.jpg" data-cap="Docent chatbot pipeline: query router, hybrid Graph DB + Vector DB retrieval, Self-RAG" aria-label="Enlarge: Docent chatbot pipeline: query router, hybrid Graph DB + Vector DB retrieval, Self-RAG">
+          <img src="assets/img/arch/museum_t.jpg" alt="" width="480" height="270" loading="lazy">
+        </button>
+        <div class="pub-body">
+          <h3>Cultural Heritage Docent that Refuses False Premises: Graph-RAG + Self-RAG</h3>
+          <p class="pub-meta">Team of 4 · BOAZ</p>
+          <span class="badge">BOAZ Mini Project 2026</span>
+          <p class="pub-desc">A docent chatbot for 2,560 National Museum of Korea artifacts. A Neo4j knowledge graph plus ChromaDB vector search feed a LangGraph Self-RAG loop that grades documents, rewrites queries, and checks for hallucination before answering. On a trap-question set: Faithfulness 0.86, Context Recall 0.56 (RAGAS).</p>
+          <ul class="hashtags"><li>#Graph-RAG</li><li>#Self-RAG</li><li>#Knowledge Graph</li><li>#Hallucination</li></ul>
+          <div class="brackets"><a href="assets/slides/museum-docent-graphrag-selfrag.pdf" download>[PDF]</a></div>
+        </div>
+      </article>
+      <article class="pub">
+        <button class="thumb-btn" type="button" data-full="assets/img/arch/legal.jpg" data-cap="HiRAG legal chatbot: seven-step retrieval and generation pipeline" aria-label="Enlarge: HiRAG legal chatbot: seven-step retrieval and generation pipeline">
+          <img src="assets/img/arch/legal_t.jpg" alt="" width="480" height="270" loading="lazy">
+        </button>
+        <div class="pub-body">
+          <h3>HiRAG Legal Chatbot for Korean Labor Law</h3>
+          <p class="pub-meta">Team of 4 · BOAZ</p>
+          <span class="badge">BOAZ Mini Project 2026</span>
+          <p class="pub-desc">Hierarchical retrieval over law → article → paragraph → item, with slot-based query decomposition, global re-ranking, and coverage-aware top-k. Recall 25% → 100% and coverage 18% → 86% vs. naive RAG; query decomposition hurt on this data, which we traced to over-fragmentation.</p>
+          <ul class="hashtags"><li>#Hierarchical RAG</li><li>#Query Decomposition</li><li>#Legal QA</li></ul>
+          <div class="brackets"><a href="assets/slides/hirag-legal-chatbot.pdf" download>[PDF]</a></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="other">
+      <h3>Other work</h3>
+      <ul>
+        <li><strong>OCR-based AI text recognition system</strong> — Korea Tourism Organization × Goodant Inc. industry–academia project (Sep.–Dec. 2026), part of the 2026 Digital Tourism Resident Card program for the Half-Price Travel platform.</li>
+        <li><strong>AiEYES society website</strong> — designed and built with Next.js on Vercel. <a href="https://2026-aieyes.vercel.app/">[site]</a> <a href="https://github.com/hakuna78/2026-aieyes">[code]</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="talks" aria-labelledby="talks-h">
+  <div class="wrap">
+    <h2 id="talks-h">Paper presentations</h2>
+    <p class="sub">Papers I presented at BOAZ, the intercollegiate big data society.</p>
+    <div class="pubs">
+      <article class="pub">
+        <button class="thumb-btn" type="button" data-full="assets/img/arch/ddpm.jpg" data-cap="DDPM forward process: noise added step by step under a variance schedule" aria-label="Enlarge: DDPM forward process: noise added step by step under a variance schedule">
+          <img src="assets/img/arch/ddpm_t.jpg" alt="" width="480" height="270" loading="lazy">
+        </button>
+        <div class="pub-body">
+          <h3>Denoising Diffusion Probabilistic Models</h3>
+          <p class="pub-meta">With a co-presenter · BOAZ, Mar. 19, 2026</p>
+          <span class="badge">Paper Review</span>
+          <p class="pub-desc">Forward and reverse diffusion as Markov chains, the ELBO objective, and the closed-form sampling that makes training efficient; closing with latent diffusion as future work.</p>
+          <ul class="hashtags"><li>#Diffusion</li><li>#Generative Models</li><li>#Computer Vision</li></ul>
+          <div class="brackets"><a href="assets/slides/ddpm-paper-review.pdf" download>[PDF]</a></div>
+        </div>
+      </article>
+      <article class="pub">
+        <button class="thumb-btn" type="button" data-full="assets/img/arch/selfrag.jpg" data-cap="Self-RAG main idea: Retrieve, IsRel, IsSup, and IsUse reflection tokens" aria-label="Enlarge: Self-RAG main idea: Retrieve, IsRel, IsSup, and IsUse reflection tokens">
+          <img src="assets/img/arch/selfrag_t.jpg" alt="" width="480" height="270" loading="lazy">
+        </button>
+        <div class="pub-body">
+          <h3>Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection</h3>
+          <p class="pub-meta">Team of 4 · BOAZ</p>
+          <span class="badge">Paper Review</span>
+          <p class="pub-desc">How reflection tokens let a model decide when to retrieve, judge relevance and support, and pick the best segment, with training, inference, and ablation results.</p>
+          <ul class="hashtags"><li>#RAG</li><li>#LLM</li><li>#Self-Reflection</li></ul>
+          <div class="brackets"><a href="assets/slides/self-rag-paper-review.pdf" download>[PDF]</a></div>
+        </div>
+      </article>
+      <article class="pub">
+        <button class="thumb-btn" type="button" data-full="assets/img/arch/seq2seq.jpg" data-cap="Seq2Seq model: two LSTMs as encoder and decoder around a fixed-size context vector" aria-label="Enlarge: Seq2Seq model: two LSTMs as encoder and decoder around a fixed-size context vector">
+          <img src="assets/img/arch/seq2seq_t.jpg" alt="" width="480" height="270" loading="lazy">
+        </button>
+        <div class="pub-body">
+          <h3>Sequence to Sequence Learning with Neural Networks</h3>
+          <p class="pub-meta">BOAZ</p>
+          <span class="badge">Paper Review</span>
+          <p class="pub-desc">The LSTM encoder–decoder, why reversing the source sentence helps, beam search decoding, and WMT’14 English–French results.</p>
+          <ul class="hashtags"><li>#Seq2Seq</li><li>#LSTM</li><li>#Machine Translation</li></ul>
+          <div class="brackets"><a href="assets/slides/seq2seq-paper-review.pdf" download>[PDF]</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<dialog class="lightbox" id="lightbox" aria-label="Enlarged figure">
+  <form method="dialog"><button class="lb-close" aria-label="Close">×</button></form>
+  <img id="lb-img" src="" alt="">
+  <p id="lb-cap"></p>
+</dialog>
+
+<section class="block" id="news" aria-labelledby="news-h">
+  <div class="wrap">
+    <h2 id="news-h">News</h2>
+    <table class="news">
+      <tr><td class="date">Oct. 2026</td><td>Started a Korean audio-visual speech recognition project with a multi-modal LLM.</td></tr>
+      <tr><td class="date">Sep. 2026</td><td>Joined the Korea Tourism Organization × Goodant industry–academia project on OCR.</td></tr>
+      <tr><td class="date">Mar. 2026</td><td>Presented DDPM at BOAZ.</td></tr>
+      <tr><td class="date">Jan. 2026</td><td>Became a track mentor for BOAZ's 26th data analysis cohort.</td></tr>
+      <tr><td class="date">Dec. 2025</td><td>Joined <a href="https://donghyunlee-lab.github.io/">Donghyun Lee AI Group</a> as an undergraduate researcher.</td></tr>
+      <tr><td class="date">Apr. 2024</td><td>Became founding vice president of AiEYES, the AI society at HUFS.</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="block" id="experience" aria-labelledby="exp-h">
+  <div class="wrap">
+    <h2 id="exp-h">Experience</h2>
+    <ol class="timeline">
+      <li>
+        <span class="t-when">2025.12 – Present</span>
+        <div>
+          <h3>Undergraduate Researcher</h3>
+          <p class="t-org"><a href="https://donghyunlee-lab.github.io/">Donghyun Lee AI Group</a> · Hankuk University of Foreign Studies</p>
+          <p class="t-desc">Advisor: Prof. Donghyun Lee.</p>
+        </div>
+      </li>
+      <li>
+        <span class="t-when">2024.03 – Present</span>
+        <div>
+          <h3>Undergraduate Student, Division of Social Science &amp; AI</h3>
+          <p class="t-org">Hankuk University of Foreign Studies</p>
+          <p class="t-desc">Expected graduation Feb. 2028.</p>
+        </div>
+      </li>
+    </ol>
+    <div class="extras">
+      <p><strong>Skills</strong> Python, PyTorch, R, SQL · Hugging Face, CLIP, OpenCV, LoRA · RAG, LangGraph</p>
+      <p><strong>Certificates</strong> ADsP and SQLD, Korea Data Agency</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Chaewoo Kim</span>
+    <span><a href="mailto:kcwkcm@hufs.ac.kr">kcwkcm@hufs.ac.kr</a> · <a href="https://github.com/hakuna78">github.com/hakuna78</a></span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var dlg = document.getElementById('lightbox');
+    var img = document.getElementById('lb-img');
+    var cap = document.getElementById('lb-cap');
+    document.querySelectorAll('.thumb-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        img.src = b.dataset.full; img.alt = b.dataset.cap; cap.textContent = b.dataset.cap;
+        dlg.showModal();
+      });
+    });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg || e.target === img) dlg.close(); });
+  })();
+</script>
+</body>
+</html>
