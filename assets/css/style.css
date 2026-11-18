@@ -196,3 +196,9 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 .thumb-btn.plain img { aspect-ratio: auto; object-fit: contain; }
 .thumb-btn.plain:hover img { transform: none; }
 .hero h1 { margin-bottom: 32px; }
+
+.results { border-collapse: collapse; font-size: 15px; margin: 4px 0 10px; width: 100%; max-width: 460px; font-variant-numeric: tabular-nums; }
+.results th, .results td { text-align: left; padding: 6px 10px 6px 0; border-bottom: 1px solid var(--rule); }
+.results th { font-weight: 600; }
+.results td:not(:first-child), .results th:not(:first-child) { text-align: right; }
+.note-list { color: var(--muted); font-size: 15px; }
