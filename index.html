@@ -107,16 +107,6 @@
           <li>Added jamo- and phoneme-level CTC heads on the visual features, noise augmentation on audio, and N-best re-ranking.</li>
           <li>The CTC heads cut visual-only CER from 148% to 41.65%.</li>
         </ul>
-        <table class="results">
-          <thead><tr><th>VSR only</th><th>CER</th><th>WER</th></tr></thead>
-          <tbody>
-            <tr><td>Real lip video (val, 200 clips)</td><td>41.65%</td><td>51.78%</td></tr>
-            <tr><td>Shuffled video from other clips</td><td>115.63%</td><td>122.11%</td></tr>
-          </tbody>
-        </table>
-        <ul class="note-list">
-          <li>Errors jump when the video does not match the speech, so the model is reading the lips rather than guessing from language alone.</li>
-        </ul>
         <div class="tags"><span class="tag">AVSR</span><span class="tag">Multi-modal LLM</span><span class="tag">LoRA</span><span class="tag">CTC</span><span class="tag">PyTorch</span></div>
       </div>
       <figure class="diagram" style="margin:0">
