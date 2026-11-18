@@ -20,7 +20,7 @@
       <li><a href="#projects">Projects</a></li>
       <li class="hide-sm"><a href="#talks">Talks</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="assets/cv_김채우.pdf">CV</a></li>
+      <li><a href="assets/cv.pdf">CV</a></li>
     </ul>
   </div>
 </nav>
@@ -35,7 +35,7 @@
         <div><dt>Affiliation</dt><dd>Undergraduate researcher, Division of Social Science &amp; AI<br>Hankuk University of Foreign Studies, Seoul</dd></div>
         <div><dt>E-mail</dt><dd><a href="mailto:kcwkcm@hufs.ac.kr">kcwkcm@hufs.ac.kr</a></dd></div>
         <div><dt>GitHub</dt><dd><a href="https://github.com/hakuna78">github.com/hakuna78</a></dd></div>
-        <div><dt>CV</dt><dd><a href="assets/cv_김채우.pdf">Download (PDF)</a></dd></div>
+        <div><dt>CV</dt><dd><a href="assets/cv.pdf">Download (PDF)</a></dd></div>
       </dl>
     </div>
     <div class="edu">
@@ -103,42 +103,31 @@
         <h3>Korean audio-visual speech recognition with a multi-modal LLM</h3>
         <p>Speech recognition breaks down in noisy places; lip movement does not. We adapt <a href="https://arxiv.org/abs/2511.07253">Omni-AVSR</a> (ICASSP 2026), a single LLM-based model that handles audio-only, visual-only, and audio-visual recognition, to Korean.</p>
         <ul>
-          <li>Fine-tuning on the AI Hub Korean lip-reading dataset with LoRA.</li>
-          <li>Added an auxiliary phoneme-level CTC loss so audio-visual tokens align with Korean pronunciation.</li>
-          <li>Next: CTC on/off ablation, noise robustness across SNR levels, and jamo vs. syllable targets.</li>
+          <li>Fine-tuning on the AI Hub Korean lip-reading dataset with LoRA, training ASR, VSR, and AVSR jointly.</li>
+          <li>Added jamo- and phoneme-level CTC heads on the visual features, noise augmentation on audio, and N-best re-ranking.</li>
+          <li>The CTC heads cut visual-only CER from 148% to 41.65%.</li>
+        </ul>
+        <table class="results">
+          <thead><tr><th>VSR only</th><th>CER</th><th>WER</th></tr></thead>
+          <tbody>
+            <tr><td>Real lip video (val, 200 clips)</td><td>41.65%</td><td>51.78%</td></tr>
+            <tr><td>Shuffled video from other clips</td><td>115.63%</td><td>122.11%</td></tr>
+          </tbody>
+        </table>
+        <ul class="note-list">
+          <li>Errors jump when the video does not match the speech, so the model is reading the lips rather than guessing from language alone.</li>
         </ul>
         <div class="tags"><span class="tag">AVSR</span><span class="tag">Multi-modal LLM</span><span class="tag">LoRA</span><span class="tag">CTC</span><span class="tag">PyTorch</span></div>
       </div>
-      <div class="figs">
-        
-        <figure class="diagram" style="margin:0">
-        <svg viewBox="0 0 560 300" role="img" aria-label="Pipeline: audio and lip video go through encoders and projectors into an LLM with LoRA that outputs Korean text; a phoneme CTC head on the projected tokens adds an auxiliary loss.">
-          <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5a6273"/></marker></defs>
-          <g font-size="13" fill="#1b2130">
-            <rect x="8" y="30" width="104" height="46" rx="8" fill="#eef0fb" stroke="#3a4fc4"/><text x="60" y="58" text-anchor="middle">Audio</text>
-            <rect x="8" y="140" width="104" height="46" rx="8" fill="#fbf3e2" stroke="#c98a12"/><text x="60" y="168" text-anchor="middle">Lip video</text>
-            <rect x="146" y="30" width="118" height="46" rx="8" fill="#fff" stroke="#c7ccd6"/><text x="205" y="58" text-anchor="middle">Audio encoder</text>
-            <rect x="146" y="140" width="118" height="46" rx="8" fill="#fff" stroke="#c7ccd6"/><text x="205" y="168" text-anchor="middle">Video encoder</text>
-            <rect x="296" y="85" width="92" height="46" rx="8" fill="#fff" stroke="#c7ccd6"/><text x="342" y="106" text-anchor="middle">Projectors</text><text x="342" y="122" text-anchor="middle" font-size="11" fill="#5a6273">AV tokens</text>
-            <rect x="420" y="70" width="132" height="76" rx="10" fill="#1b2130"/><text x="486" y="102" text-anchor="middle" fill="#fff" font-weight="600">LLM</text><text x="486" y="122" text-anchor="middle" fill="#c9cff0" font-size="12">+ LoRA</text>
-            <rect x="420" y="190" width="132" height="44" rx="8" fill="#fff" stroke="#1b2130"/><text x="486" y="217" text-anchor="middle">Korean transcript</text>
-            <rect x="270" y="222" width="136" height="54" rx="8" fill="#fff" stroke="#c98a12" stroke-dasharray="4 3"/><text x="338" y="245" text-anchor="middle" font-weight="600">Phoneme CTC head</text><text x="338" y="263" text-anchor="middle" font-size="11" fill="#5a6273">auxiliary loss (added)</text>
-          </g>
-          <g stroke="#5a6273" stroke-width="1.4" fill="none" marker-end="url(#arr)">
-            <path d="M112,53 H144"/><path d="M112,163 H144"/>
-            <path d="M264,53 H280 V100 H294"/><path d="M264,163 H280 V116 H294"/>
-            <path d="M388,108 H418"/>
-            <path d="M486,146 V188"/>
-            <path d="M342,131 V220"/>
-          </g>
-        </svg>
+      <figure class="diagram" style="margin:0">
+        <button class="thumb-btn plain" type="button" data-full="assets/img/avsr-architecture.png" data-cap="Korean AVSR: Omni-AVSR fine-tuned for Korean with auxiliary jamo and phoneme CTC heads" aria-label="Enlarge architecture">
+          <img src="assets/img/avsr-architecture.png" alt="Architecture: audio with noise augmentation goes through a frozen Whisper encoder, lip video through AV-HuBERT with LoRA; both are compressed and projected into a Qwen LLM with LoRA trained on ASR, VSR, and AVSR; jamo and phoneme CTC heads on the visual features add auxiliary losses; N-best re-ranking produces the Korean transcript" loading="lazy">
+        </button>
       </figure>
-      </div>
     </article>
 
     <article class="feature">
       <div>
-        <span class="status live">Ongoing · since Dec. 2025</span>
         <h3>Attention-based spatial estimation of hourly PM10/PM2.5 at unmonitored stations</h3>
         <p>Estimating fine-dust levels where no sensor exists, using the stations around it. Stations are held out by fold, so the model never sees the place it has to predict.</p>
         <ul>
